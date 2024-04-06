@@ -1,0 +1,63 @@
+{
+  "name": "",
+  "description": "",
+  "prelude": "",
+  "requirement": {
+    "level":0,
+    "quests": [],
+    "stats": {
+      "stamina":0,
+      "strength":0,
+      "dexterity":0,
+      "intelligence":0
+    }
+  },
+  "relevance": "main",
+  "quests": [
+    {
+      "id": "swig_of_hope_1",
+      "name": "Embrace the day",
+      "description":"After waking up, you notice your cell door open. It seems like it is time to escape.",
+      "requirement": {
+        "level":0,
+        "quests": [],
+        "stats": {
+          "stamina":0,
+          "strength":0,
+          "dexterity":0,
+          "intelligence":0
+        }
+      },
+      "reward": {
+        "experience":0,
+        "money":0,
+        "items": [
+          {
+            "name":"",
+            "description":"",
+            "type": "",
+            "properties": {
+              "damage": 0,
+              "stats": {
+                "stamina":0,
+                "strength":0,
+                "dexterity":0,
+                "intelligence":0
+              }
+            },
+            "requirement": {
+              "level":0,
+              "quests": [],
+              "stats": {
+                "stamina":0,
+                "strength":0,
+                "dexterity":0,
+                "intelligence":0
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
