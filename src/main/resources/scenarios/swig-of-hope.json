@@ -1,0 +1,51 @@
+{
+  "name": "Swig of Hope",
+  "description": "A short story in staying hopeful, for tomorrow is a new day.",
+  "prelude": "Wrongly-incarcerated, you abide the rules of a prison and try to survive day by day... Until a fateful day.",
+  "relevance": "main",
+  "quests": [
+    {
+      "id": "swig_of_hope_1",
+      "name": "Embrace the day",
+      "description":"After waking up, you notice your cell door open. It seems like it is time to escape.",
+      "requirement": {
+        "level":0,
+        "stats": {
+          "stamina":0,
+          "strength":0,
+          "dexterity":0,
+          "intelligence":0
+        }
+      },
+      "reward": {
+        "experience":0,
+        "money":0,
+        "items": [
+          {
+            "name":"Holy Pendant",
+            "description":"Its old, rusty and the handle is wiggly, but it can protect against the unholy.",
+            "type": "accessory",
+            "properties": {
+              "stats": {
+                "stamina":0,
+                "strength":0,
+                "dexterity":0,
+                "intelligence":0
+              }
+            },
+            "requirement": {
+              "level":0,
+              "quests": [],
+              "stats": {
+                "stamina":0,
+                "strength":0,
+                "dexterity":0,
+                "intelligence":0
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

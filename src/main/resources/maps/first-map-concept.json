@@ -1,0 +1,69 @@
+{
+  "firstZone": "run_down_road",
+  "zones": [
+    {
+      "id": "run_down_road",
+      "name": "Run Down Road",
+      "description": "",
+      "connector": {
+        "front": "village_entrance"
+      }
+    },
+    {
+      "id": "village_entrance",
+      "name": "Village Entrance",
+      "description": "",
+      "connector": {
+        "front": "village",
+        "behind": "run_down_road",
+        "left": "village_dungeon",
+        "right": "down_river_spring"
+      }
+    },
+    {
+      "id": "village_dungeon",
+      "name": "The Village Dungeon",
+      "description": "",
+      "connector": {
+        "behind": "village_entrance"
+      },
+      "monsters": [
+        "basic_skeleton"
+      ]
+    },
+    {
+      "id": "down_river_spring",
+      "name": "Down the River Spring",
+      "description": "",
+      "connector": {
+        "behind": "village_entrance"
+      }
+    },
+    {
+      "id": "village",
+      "name": "Village",
+      "description": "",
+      "connector": {
+        "front": "village_centre",
+        "behind": "village_entrance"
+      },
+      "npc": [
+        "josephine",
+        "eugenia"
+      ]
+    },
+    {
+      "id": "village_centre",
+      "name": "Village Centre",
+      "description": "",
+      "connector": {
+        "behind": "village"
+      },
+      "npc": [
+        "del",
+        "robin",
+        "timothy"
+      ]
+    }
+  ]
+}

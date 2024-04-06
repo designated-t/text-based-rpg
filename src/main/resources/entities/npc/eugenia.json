@@ -1,0 +1,25 @@
+{
+  "id": "eugenia",
+  "name": "Eugenia Gislain",
+  "description": "Flower Seller in the village. Very sympathetic girl.",
+  "dialogues": [
+    "Nice weather we're having, huh?",
+    "Hey! Hope you're well.",
+    "I'm so glad you're still kicking it!"
+  ],
+  "relatedQuests": [
+    {
+      "id":"swig_of_hope_1",
+      "trigger":"Hey, could I ask you a favour? Its quite simple really.",
+      "denialOfTrigger":"Oh... Alright, I know you're a busy one! See ya...",
+      "dialogues":[
+        "Oh thank you for hearing me out!",
+        "So there's this dungeon outside of the village...",
+        "For some reason, no one pays it any mind...",
+        "But I was collecting herbs the other day, and saw something move...",
+        "And, I mean, It didn't look either human or animalistic... Like a camouflaged white.",
+        "I'll make it worth your while if you can just check it out."
+      ]
+    }
+  ]
+}

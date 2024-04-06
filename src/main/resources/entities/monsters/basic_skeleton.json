@@ -1,0 +1,10 @@
+{
+  "id": "clung_skeleton",
+  "name": "Clung Skeleton",
+  "description": "A Skeleton with a very thin connection to life.",
+  "level":1,
+  "stats": {
+    "stamina":1,
+    "strength":5
+  }
+}
