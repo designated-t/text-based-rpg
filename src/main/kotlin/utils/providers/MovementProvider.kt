@@ -49,28 +49,22 @@ class MovementProvider : IProvider {
     }
 
     private fun provideAux() {
-        try {
-            val nextMove = userInput.get(nextZones.size)
+        val nextMove = userInput.get<Int>(
+                List(nextZones.size) { it.toString() }
+        )
 
-            previousZone = currentZone
-            currentZone = zones
-                .getOrDefault(
-                    nextZones[nextMove].id,
-                    currentZone
-                )
+        previousZone = currentZone
+        currentZone = zones
+            .getOrDefault(
+                nextZones[nextMove].id,
+                currentZone
+            )
 
-        } catch (e: NumberFormatException) {
-            println("Invalid Input. Expecting a number.")
-        } catch (e: IndexOutOfBoundsException) {
-            // Verification for this exception is already made in userInput.get(),
-            // but I do it here too just so compiler doesn't complain ever
-            println("Invalid Input. Please input a number between 0 and ${nextZones.size - 1}")
-        } finally {
-            if (currentZone == previousZone)
-                provideAux()
-            else
-                println("Moved from ${previousZone.name} to ${currentZone.name}")
-        }
+        if (currentZone == previousZone)
+            provideAux()
+        else
+            println("Moved from ${previousZone.name} to ${currentZone.name}")
+
     }
 
     private fun buildZones(): Map<String, Zone> = world.zones.associateBy { it.id }

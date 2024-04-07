@@ -9,7 +9,8 @@ import java.lang.IndexOutOfBoundsException
 import java.util.*
 
 class ExplorationProvider(
-    val movementProvider: MovementProvider
+    val movementProvider: MovementProvider,
+    val interactionProvider: InteractionProvider
 ) : IProvider {
 
     private val entityHandler = EntityHandler
@@ -28,11 +29,13 @@ class ExplorationProvider(
         choiceMap
             .keys
             .forEach {
-                println("${tab}${capitalizedKey(it)}:")
+                println("${tab}You can ${capitalizedKey(it)}:")
                 choiceMap[it]?.forEach {
                     entity -> println("${tab}${tab}${entity.name}")
                 }
             }
+
+
     }
 
     override fun provide() {
@@ -53,28 +56,10 @@ class ExplorationProvider(
     }
 
     private fun provideAux() {
-        try {
-            val nextMove = userInput.get(choiceMap.keys)
-            //TODO: Implement InteractionProvider for the next steps
-            previousZone = currentZone
-            currentZone = zones
-                .getOrDefault(
-                    nextZones[nextMove].id,
-                    currentZone
-                )
+        val nextMove = userInput.get<String>(choiceMap.keys)
+        //TODO: Implement InteractionProvider for the next steps
 
-        } catch (e: NumberFormatException) {
-            println("Invalid Input. Expecting a number.")
-        } catch (e: IndexOutOfBoundsException) {
-            // Verification for this exception is already made in userInput.get(),
-            // but I do it here too just so compiler doesn't complain ever
-            println("Invalid Input. Please input a number between 0 and ${nextZones.size - 1}")
-        } finally {
-            if (currentZone == previousZone)
-                provideAux()
-            else
-                println("Moved from ${previousZone.name} to ${currentZone.name}")
-        }
+        interactionProvider.provide()
     }
 
     private fun getZoneMonsters(): Collection<Monster> = entityHandler.getMonstersByIds(currentZone.monsters)

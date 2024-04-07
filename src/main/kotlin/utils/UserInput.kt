@@ -1,26 +1,44 @@
 package utils
 
 class UserInput {
-    fun get(amountOfChoices: Int): Int {
-        var userInput = -1
-        try {
-            userInput = readln().toInt()
-        } catch (e: NumberFormatException) {
-            println("Invalid Input. Expecting a number.")
-        } finally {
-            if (userInput == -1)
-                userInput = get(amountOfChoices)
-            else if (userInput >= amountOfChoices) {
-                println("Invalid Input. Please input a number between 0 and ${amountOfChoices - 1}")
-                userInput = get(amountOfChoices)
-            }
+    inline fun <reified T> get(listOfChoices: Collection<String>): T {
+        val userInput: T = when(T::class) {
+            Int::class -> getIntUserInput(listOfChoices)
+            String::class -> getStringUserInput(listOfChoices)
+            else -> readln()
+        } as T
 
+        return userInput
+    }
+
+    fun getIntUserInput(listOfChoices: Collection<String>) : Int {
+        var userInput = getIntInputAux()
+
+        if (userInput !in listOfChoices.indices) {
+            println("Invalid Input. Should be between 0 and ${listOfChoices.size}")
+            userInput = getIntUserInput(listOfChoices)
         }
 
         return userInput
     }
 
-    fun get(listOfChoices: Collection<String>) {
+    fun getStringUserInput(listOfChoices: Collection<String>) : String {
+        var userInput = readln()
 
+        if (userInput !in listOfChoices) {
+            userInput = getStringUserInput(listOfChoices)
+        }
+
+        return userInput
+    }
+
+    private fun getIntInputAux(): Int {
+        val userInput: Int = try {
+            readln().toInt()
+        } catch (e: NumberFormatException) {
+            println("Invalid Input. Should be a number.")
+            getIntInputAux()
+        }
+        return userInput
     }
 }
