@@ -5,21 +5,22 @@ import utils.UserInput
 import utils.characters.Entity
 import utils.characters.Monster
 import utils.characters.NPC
+import utils.handlers.InteractionHandler
 import java.lang.IndexOutOfBoundsException
 import java.util.*
 
 class ExplorationProvider(
-    val movementProvider: MovementProvider,
-    val interactionProvider: InteractionProvider
+    val movementProvider: MovementProvider
 ) : IProvider {
 
-    private val entityHandler = EntityHandler
+    private lateinit var currentChoice: Pair<String, Int>
     private var currentZone = buildCurrentZone()
     private var currentZoneMonsters: Collection<Monster> = getZoneMonsters()
     private var currentZoneNPCs: Collection<NPC> = getZoneNPCs()
     private var choiceMap: Map<String, Collection<Entity>> = buildCurrentChoiceMap()
 
     private val userInput: UserInput = UserInput()
+    private val entityHandler = EntityHandler
 
     private val tab: String = "\t"
 
@@ -59,7 +60,8 @@ class ExplorationProvider(
         val nextMove = userInput.get<String>(choiceMap.keys)
         //TODO: Implement InteractionProvider for the next steps
 
-        interactionProvider.provide()
+
+        InteractionHandler.javaClass.getDeclaredMethod(nextMove).invoke(InteractionHandler, )
     }
 
     private fun getZoneMonsters(): Collection<Monster> = entityHandler.getMonstersByIds(currentZone.monsters)

@@ -16,7 +16,7 @@ class NamePending(
                 println("$index -> $provider")
             }
 
-        val input = userInput.get(providers.size)
+        val input = userInput.get<Int>(providers.map { toString() })
         providers[input].provide()
         makeChoice()
     }

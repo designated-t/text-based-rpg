@@ -1,5 +1,6 @@
 import utils.providers.MovementProvider
 import utils.Fetch
+import utils.handlers.InteractionHandler
 import utils.providers.ExplorationProvider
 
 fun main(args: Array<String>) {
@@ -7,16 +8,9 @@ fun main(args: Array<String>) {
         println("Args detected, but ignored")
     }
 
-    val fetcher = Fetch
-    val world = fetcher.worlds().first()
-    val entities = fetcher.entities()
-
-    val movementProvider = MovementProvider()
-    val explorationProvider = ExplorationProvider(movementProvider)
-
     println("Welcome")
-
-    while(true) {
+    InteractionHandler.javaClass.getDeclaredMethod("fight").invoke(InteractionHandler, )
+    /*while(true) {
         println("sdfs")
-    }
+    }*/
 }
