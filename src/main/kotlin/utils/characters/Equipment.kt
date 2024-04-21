@@ -1,11 +1,12 @@
 package utils.characters
 
+import kotlinx.serialization.Serializable
 import utils.items.Accessory
 import utils.items.Armour
 import utils.items.Item
 import utils.items.Weapon
 
-
+@Serializable
 class Equipment {
     private var accessory: Accessory? = null
     private var chestArmour: Armour? = null

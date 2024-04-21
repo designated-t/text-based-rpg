@@ -1,6 +1,8 @@
 package utils
 
-class UserInput {
+import java.util.*
+
+object UserInput {
     inline fun <reified T> get(listOfChoices: Collection<String>): T {
         val userInput: T = when(T::class) {
             Int::class -> getIntUserInput(listOfChoices)
@@ -15,7 +17,7 @@ class UserInput {
         var userInput = getIntInputAux()
 
         if (userInput !in listOfChoices.indices) {
-            println("Invalid Input. Should be between 0 and ${listOfChoices.size}")
+            println("Invalid Input. Should be between 0 and ${listOfChoices.size - 1}")
             userInput = getIntUserInput(listOfChoices)
         }
 
@@ -26,10 +28,15 @@ class UserInput {
         var userInput = readln()
 
         if (userInput !in listOfChoices) {
+            println("Invalid Input. Possible inputs: $listOfChoices")
             userInput = getStringUserInput(listOfChoices)
         }
 
         return userInput
+    }
+
+    fun getAnyUserInput() {
+        readlnOrNull()
     }
 
     private fun getIntInputAux(): Int {

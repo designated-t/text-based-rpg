@@ -6,67 +6,75 @@ import utils.characters.Entity
 import utils.characters.Monster
 import utils.characters.NPC
 import utils.handlers.InteractionHandler
+import utils.maps.Zone
 import java.lang.IndexOutOfBoundsException
 import java.util.*
 
 class ExplorationProvider(
-    val movementProvider: MovementProvider
+    private val movementProvider: MovementProvider
 ) : IProvider {
 
-    private lateinit var currentChoice: Pair<String, Int>
-    private var currentZone = buildCurrentZone()
+    private var currentZone: Zone = movementProvider.currentZone
     private var currentZoneMonsters: Collection<Monster> = getZoneMonsters()
     private var currentZoneNPCs: Collection<NPC> = getZoneNPCs()
     private var choiceMap: Map<String, Collection<Entity>> = buildCurrentChoiceMap()
 
-    private val userInput: UserInput = UserInput()
-    private val entityHandler = EntityHandler
-
     private val tab: String = "\t"
 
     override fun announceChoices() {
-        if (choiceMap.isNotEmpty()) println("You can make the following choices: ")
+        println("You can make the following choices: ")
 
         choiceMap
             .keys
-            .forEach {
-                println("${tab}You can ${capitalizedKey(it)}:")
-                choiceMap[it]?.forEach {
-                    entity -> println("${tab}${tab}${entity.name}")
-                }
+            .forEachIndexed { index, key ->
+                println("$index -> ${capitalizedKey(key)}:")
+                choiceMap[key]
+                    ?.forEach{ entity ->
+                        println("$tab${entity.name}")
+                    }
             }
-
-
     }
 
     override fun provide() {
-        explore()
-        announceChoices()
+        if (thereAreChoices()) {
+            announceChoices()
 
-        provideAux()
-
+            provideAux()
+        }
     }
 
-    override fun toString(): String = "Explore"
+    override fun canProvide(): Boolean = thereAreChoices()
 
-    private fun explore() {
+    override fun update() {
+        currentZone = movementProvider.currentZone
+
         currentZoneMonsters = getZoneMonsters()
         currentZoneNPCs = getZoneNPCs()
 
         choiceMap = buildCurrentChoiceMap()
     }
 
+    override fun toString(): String = "Explore"
+
     private fun provideAux() {
-        val nextMove = userInput.get<String>(choiceMap.keys)
-        //TODO: Implement InteractionProvider for the next steps
+        val nextMoveIndex = UserInput.get<Int>(choiceMap.keys)
+        val nextMoveKey = choiceMap.keys.elementAt(nextMoveIndex)
 
+        choiceMap[nextMoveKey]
+            ?.forEachIndexed { index, entity ->
+                println("$index -> ${entity.name}")
+            }
 
-        InteractionHandler.javaClass.getDeclaredMethod(nextMove).invoke(InteractionHandler, )
+        val entityChoiceIndex = UserInput.get<Int>(choiceMap[nextMoveKey]!!.map { it.id })
+        val entityChoiceId = choiceMap[nextMoveKey]!!.elementAt(entityChoiceIndex).id
+
+        InteractionHandler.javaClass
+            .getDeclaredMethod(nextMoveKey, String::class.java)
+            .invoke(InteractionHandler, entityChoiceId)
     }
 
-    private fun getZoneMonsters(): Collection<Monster> = entityHandler.getMonstersByIds(currentZone.monsters)
-    private fun getZoneNPCs(): Collection<NPC> = entityHandler.getNPCsByIds(currentZone.npcs)
-    private fun buildCurrentZone() = movementProvider.getCurrentZone()
+    private fun getZoneMonsters(): Collection<Monster> = EntityHandler.getMonstersByIds(currentZone.monsters)
+    private fun getZoneNPCs(): Collection<NPC> = EntityHandler.getNPCsByIds(currentZone.npcs)
     private fun buildCurrentChoiceMap(): Map<String, Collection<Entity>> {
         val tempMap = mutableMapOf<String, Collection<Entity>>()
         //TODO: Implement Exploration for something? Items? Shortcuts?
@@ -77,4 +85,6 @@ class ExplorationProvider(
     private fun capitalizedKey(string: String): String = string.replaceFirstChar {
         if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString()
     }
+
+    private fun thereAreChoices() = choiceMap.isNotEmpty()
 }

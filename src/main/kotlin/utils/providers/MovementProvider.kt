@@ -4,42 +4,41 @@ import utils.Fetch
 import utils.UserInput
 import utils.maps.World
 import utils.maps.Zone
-import java.lang.IndexOutOfBoundsException
 
 class MovementProvider : IProvider {
     private val worlds: Collection<World> = Fetch.worlds()
     private val world: World = worlds.first()
 
     private val zones: Map<String, Zone> = buildZones()
-    private var currentZone = world.zones.first()
+    var currentZone = world.zones.first()
     private var previousZone = currentZone
     private var nextZones = assignNextZones()
 
-    private val userInput: UserInput = UserInput()
     override fun provide() {
         announceChoices()
         // Aux method to not repeat announceChoices() method execution
         provideAux()
+    }
 
+    override fun update() {
         nextZones = assignNextZones()
     }
 
-    override fun toString(): String {
-        return "Movement"
-    }
 
     override fun announceChoices() {
-        println("You can move to the following zones: ")
+        if (thereAreZonesToMoveTo()) {
+            println("You can move to the following zones: ")
 
-        nextZones
-            .forEachIndexed { index, zone ->
-                println("$index -> ${zone.name}")
-            }
+            nextZones
+                .forEachIndexed { index, zone ->
+                    println("$index -> ${zone.name}")
+                }
+        }
     }
 
-    fun canMove() = nextZones.isNotEmpty()
+    override fun canProvide(): Boolean = thereAreZonesToMoveTo()
 
-    internal fun getCurrentZone() = currentZone
+    private fun thereAreZonesToMoveTo() = nextZones.isNotEmpty()
 
     private fun assignNextZones(): List<Zone> {
         return currentZone.connector
@@ -49,7 +48,7 @@ class MovementProvider : IProvider {
     }
 
     private fun provideAux() {
-        val nextMove = userInput.get<Int>(
+        val nextMove = UserInput.get<Int>(
                 List(nextZones.size) { it.toString() }
         )
 
@@ -68,5 +67,6 @@ class MovementProvider : IProvider {
     }
 
     private fun buildZones(): Map<String, Zone> = world.zones.associateBy { it.id }
+    override fun toString(): String = "Move"
 }
 

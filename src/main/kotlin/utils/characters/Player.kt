@@ -16,6 +16,7 @@ class Player(
             dexterity = 5
         )
     ),
+    override val description: String,
     override val equipment: Equipment,
     override val inventory: MutableCollection<Item>,
     override val id: String = "player",

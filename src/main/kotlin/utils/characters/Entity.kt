@@ -8,6 +8,7 @@ import utils.properties.EntityProperties
 sealed interface Entity {
     val id: String
     val name: String
+    val description: String
     val properties: EntityProperties
     val equipment: Equipment
     val inventory: MutableCollection<Item>

@@ -47,7 +47,7 @@
         "front": "village_centre",
         "behind": "village_entrance"
       },
-      "npc": [
+      "npcs": [
         "josephine",
         "eugenia"
       ]
@@ -59,7 +59,7 @@
       "connector": {
         "behind": "village"
       },
-      "npc": [
+      "npcs": [
         "del",
         "robin",
         "timothy"
