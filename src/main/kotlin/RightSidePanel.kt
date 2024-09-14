@@ -24,12 +24,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import state.GameContext
 
 const val INVENTORY_COLUMNS = 9
 const val INVENTORY_BUTTON_SIZE = 150
 
 @Composable
-fun RowScope.RightSidePanel() {
+fun RowScope.RightSidePanel(gameContext: GameContext) {
     // Section for more information on the right
     Column(
         modifier = Modifier.fillMaxHeight().weight(2f), verticalArrangement = Arrangement.Top

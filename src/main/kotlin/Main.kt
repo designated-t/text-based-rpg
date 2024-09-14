@@ -8,6 +8,9 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.TextUnit
@@ -17,6 +20,7 @@ import androidx.compose.ui.window.WindowPlacement
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
 import java.awt.Dimension
+import state.GameContext
 
 const val MIN_WINDOW_HEIGHT = 600
 const val MIN_WINDOW_WIDTH = 800
@@ -29,6 +33,8 @@ val NORMAL_FONT_SIZE = textUnit(1f)
 
 @Composable
 fun App() {
+    val gameContext by remember { mutableStateOf(GameContext()) }
+
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -40,9 +46,9 @@ fun App() {
         ) {
             LeftSidePanel()
 
-            MiddlePanel()
+            MiddlePanel(gameContext)
 
-            RightSidePanel()
+            RightSidePanel(gameContext)
         }
     }
 }

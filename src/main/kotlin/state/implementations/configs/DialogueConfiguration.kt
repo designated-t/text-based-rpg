@@ -1,14 +1,12 @@
 package state.implementations.configs
 
 import GameState
-import state.AbstractActionable
-import state.ActionConfiguration
+import state.IAction
+import state.IActionConfiguration
 
-class DialogueConfiguration: ActionConfiguration {
+class DialogueConfiguration: IActionConfiguration {
 
     override fun getGameState(): GameState = GameState.DIALOGUE
 
-    override fun getActions(): List<AbstractActionable> {
-        TODO("Not yet implemented")
-    }
+    override fun getActions(): List<IAction> = listOf()
 }

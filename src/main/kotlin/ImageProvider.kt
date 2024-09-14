@@ -1,11 +1,16 @@
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toComposeImageBitmap
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.unit.dp
 import javax.imageio.ImageIO
 
 object ImageProvider {
@@ -22,6 +27,10 @@ object ImageProvider {
                 modifier = Modifier.weight(2f).fillMaxSize(),
                 contentScale = ContentScale.Crop
             )
+            Spacer(Modifier.height(12.dp).fillMaxWidth())
+            Text(
+                text = Player.stamina.value.toString(),
+                modifier = Modifier.fillMaxWidth().weight(1f))
         } else {
             // Handle the case when the file doesn't exist
             println("Image file not found!")

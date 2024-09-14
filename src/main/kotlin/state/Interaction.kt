@@ -1,0 +1,6 @@
+package state
+
+class Interaction {
+
+
+}

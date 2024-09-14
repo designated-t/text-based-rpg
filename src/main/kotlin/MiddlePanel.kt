@@ -25,10 +25,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-
+import state.GameContext
+import state.implementations.configs.ActionConfigurationProvider
 
 @Composable
-fun RowScope.MiddlePanel() {
+fun RowScope.MiddlePanel(gameContext: GameContext) {
     var commandHistory by remember { mutableStateOf(emptyList<String>()) }
 
     Column(
@@ -40,7 +41,7 @@ fun RowScope.MiddlePanel() {
     ) {
         TextHistorySubPanel(commandHistory)
 
-        InputSubPanel { input ->
+        InputSubPanel(gameContext) { input ->
             if (commandHistory.size > 20)
                 commandHistory.drop(1)
             commandHistory = commandHistory + input
@@ -49,23 +50,23 @@ fun RowScope.MiddlePanel() {
 }
 
 @Composable
-fun ColumnScope.InputSubPanel(printToTextArea: (String) -> Unit) {
+fun ColumnScope.InputSubPanel(gameContext: GameContext, printToTextArea: (String) -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .weight(.05f)
             .background(color = Color.DarkGray)
     ) {
-        for (action in listOf("Attack", "Defend", "Run")) {
+        for (action in ActionConfigurationProvider.provide(gameContext.gameState).getActions()) {
             Button(
                 modifier = Modifier.weight(1f).fillMaxHeight(),
                 onClick = {
-                    printToTextArea(action)
-                    Player.inventory.add(action)
+                    printToTextArea(action.getName())
+                    action.perform(gameContext)
                 },
             ) {
                 Text(
-                    text = action,
+                    text = action.getName(),
                     fontSize = NORMAL_FONT_SIZE,
                 )
             }
