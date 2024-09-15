@@ -1,13 +1,26 @@
 package state.implementations.actions
 
+import ApplicationBootstrappyConstants.BASE_STAMINA_COST
+import Player
+import StatHandler
+import StatType
 import state.GameContext
 import state.IAction
 
 class Explore: IAction {
-    override fun perform(context: GameContext) {
-        context.player.stamina.value -= 20 // TODO: unhard code this
+    override fun perform(context: GameContext): List<String> {
+        consumeStamina(context.player)
 
-        if (context.player.stamina.value < 0)
-            context.player.stamina.value = 0
+
+        return listOf("TODO")
+    }
+
+    private fun consumeStamina(player: Player) {
+        val multipliedStaminaCost = StatHandler.multiply(StatType.STAMINA, BASE_STAMINA_COST, player.modifiers)
+
+        if (player.stamina.value < BASE_STAMINA_COST)
+            player.stamina.value = 0f
+        else
+            player.stamina.value -= multipliedStaminaCost
     }
 }

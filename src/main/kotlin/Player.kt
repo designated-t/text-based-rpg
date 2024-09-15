@@ -3,6 +3,7 @@ import androidx.compose.runtime.mutableStateOf
 
 object Player {
     val inventory = mutableStateListOf<String>()
-    var health = 100
-    var stamina = mutableStateOf(100)
+    var health = 100f
+    var stamina = mutableStateOf(100f)
+    var modifiers: Modifiers = Modifiers()
 }
