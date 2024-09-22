@@ -1,11 +1,17 @@
+package stats.stat
+
 import enums.Origin
 import enums.StatType
 import java.util.EnumMap
 
 const val MODIFIER_DIVIDER = 100f
 
-class Modifiers {
-    private val multipliers: EnumMap<MultiplierType, EnumMap<StatType, MutableList<Multiplier>>> = EnumMap(MultiplierType::class.java)
+class StatModifiers {
+
+    // TODO: Rearrange to make less maps of the largest Enums
+    private val multipliers: EnumMap<MultiplierType, EnumMap<StatType, MutableList<Multiplier>>> = EnumMap(
+        MultiplierType::class.java
+    )
 
     init {
         MultiplierType
@@ -41,8 +47,8 @@ data class Multiplier(
 )
 
 enum class MultiplierType(val baseMulti: Float) {
-    MULTIPLICATIVE(0f),
-    ADDITIVE(1f)
+    MULTIPLICATIVE(1f),
+    ADDITIVE(0f)
 
     ;
 }

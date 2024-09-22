@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -37,8 +38,17 @@ fun RowScope.RightSidePanel(gameContext: GameContext) {
     ) {
         // Placeholder image box
         LoadImageFromFile("swag.png")
+        Stats()
         Inventory()
     }
+}
+
+@Composable
+fun ColumnScope.Stats() {
+    Text(
+        text = Player.stamina.value.toString(),
+        modifier = Modifier.fillMaxWidth().weight(1f)
+    )
 }
 
 @Composable

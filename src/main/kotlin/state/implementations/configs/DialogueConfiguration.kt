@@ -6,7 +6,7 @@ import state.IActionConfiguration
 
 class DialogueConfiguration: IActionConfiguration {
 
-    override fun getGameState(): GameState = GameState.DIALOGUE
+    override val actions: List<IAction> = listOf()
 
-    override fun getActions(): List<IAction> = listOf()
+    override fun getGameState(): GameState = GameState.DIALOGUE
 }

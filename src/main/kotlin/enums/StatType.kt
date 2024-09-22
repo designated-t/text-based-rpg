@@ -1,7 +1,10 @@
 package enums
 
 enum class StatType {
-    STAMINA,
+    MAX_STAMINA,
+    STAMINA_COST,
+    STAMINA_REGEN,
+
     TOUGHNESS,
     STRENGTH,
     DEXTERITY,

@@ -1,36 +1,36 @@
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toComposeImageBitmap
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.unit.dp
+import java.awt.image.BufferedImage
+import java.io.InputStream
 import javax.imageio.ImageIO
 
 object ImageProvider {
+    private var imgFileStream: InputStream? = null
+    private var charImage: BufferedImage? = null
+
+
     @Composable
     fun ColumnScope.LoadImageFromFile(filePath: String) {
-        val imgFileStream = Thread.currentThread().contextClassLoader.getResourceAsStream("images/$filePath")
+        if (imgFileStream == null)
+            imgFileStream = Thread.currentThread().contextClassLoader.getResourceAsStream("images/$filePath")
+
 
         if (imgFileStream != null) {
-            val bufferedImage = ImageIO.read(imgFileStream)
+            if (charImage == null)
+                charImage = ImageIO.read(imgFileStream)
 
             Image(
-                bitmap = bufferedImage.toComposeImageBitmap(),
+                bitmap = charImage!!.toComposeImageBitmap(),
                 contentDescription = "Loaded Image",
                 modifier = Modifier.weight(2f).fillMaxSize(),
                 contentScale = ContentScale.Crop
             )
-            Spacer(Modifier.height(12.dp).fillMaxWidth())
-            Text(
-                text = Player.stamina.value.toString(),
-                modifier = Modifier.fillMaxWidth().weight(1f))
         } else {
             // Handle the case when the file doesn't exist
             println("Image file not found!")

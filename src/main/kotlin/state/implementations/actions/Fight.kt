@@ -4,7 +4,7 @@ import state.GameContext
 import state.IAction
 
 class Fight: IAction {
-    override fun perform(context: GameContext) {
+    override suspend fun perform(context: GameContext) {
 
     }
 }
