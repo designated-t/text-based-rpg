@@ -21,6 +21,7 @@ import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
 import java.awt.Dimension
 import state.GameContext
+import utils.Boot
 
 const val MIN_WINDOW_HEIGHT = 600
 const val MIN_WINDOW_WIDTH = 800
@@ -67,6 +68,8 @@ fun RowScope.LeftSidePanel() {
 }
 
 fun main() = application {
+    Boot.strap()
+
     Window(
         onCloseRequest = ::exitApplication,
         state = WindowState(

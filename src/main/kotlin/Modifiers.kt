@@ -1,3 +1,5 @@
+import enums.Origin
+import enums.StatType
 import java.util.EnumMap
 
 const val MODIFIER_DIVIDER = 100f

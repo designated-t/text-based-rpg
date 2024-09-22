@@ -1,6 +1,6 @@
 package state
 
-import GameState
+import enums.GameState
 
 interface IActionConfiguration {
     fun getGameState(): GameState

@@ -1,7 +1,7 @@
 package state.implementations.configs
 
 import ApplicationBootstrappyConstants
-import GameState
+import enums.GameState
 import java.util.EnumMap
 import state.IActionConfiguration
 

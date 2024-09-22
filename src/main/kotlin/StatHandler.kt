@@ -1,3 +1,5 @@
+import enums.StatType
+
 object StatHandler {
 
     /**

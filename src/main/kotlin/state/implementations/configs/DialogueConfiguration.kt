@@ -1,6 +1,6 @@
 package state.implementations.configs
 
-import GameState
+import enums.GameState
 import state.IAction
 import state.IActionConfiguration
 

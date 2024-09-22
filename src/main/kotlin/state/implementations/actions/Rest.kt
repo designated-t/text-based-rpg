@@ -8,6 +8,6 @@ class Rest: IAction {
         context.player.stamina.value += 20 // TODO: unhardcode this
 
         if (context.player.stamina.value > 100)
-            context.player.stamina.value = 100
+            context.player.stamina.value = 100f
     }
 }
