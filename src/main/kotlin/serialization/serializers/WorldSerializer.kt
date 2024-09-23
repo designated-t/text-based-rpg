@@ -10,7 +10,7 @@ import kotlinx.serialization.json.JsonDecoder
 import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.serializer
-import serialization.serializable.map.MapManager
+import serialization.serializable.map.MapHandler
 import serialization.serializable.map.World
 
 object WorldSerializer : KSerializer<World> {
@@ -22,7 +22,7 @@ object WorldSerializer : KSerializer<World> {
 
         val worldId = input.json.decodeFromJsonElement<String>(tree)
 
-        return MapManager.provideWorldById(worldId)
+        return MapHandler.provideWorldById(worldId)
     }
 
     override fun serialize(encoder: Encoder, value: World) {

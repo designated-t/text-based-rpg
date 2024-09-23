@@ -10,7 +10,7 @@ import kotlinx.serialization.json.JsonDecoder
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.serializer
 import serialization.serializable.map.Area
-import serialization.serializable.map.MapManager
+import serialization.serializable.map.MapHandler
 import serialization.serializers.SerializerSupport.getProp
 
 object AreaSerializer : KSerializer<Area> {
@@ -24,7 +24,7 @@ object AreaSerializer : KSerializer<Area> {
         val id: String = getProp(tree, "id")
         val zoneId: String = getProp(tree, "zone")
 
-        val zone = MapManager.provideZoneById(zoneId)
+        val zone = MapHandler.provideZoneById(zoneId)
 
         return Area(id, name, zone)
     }

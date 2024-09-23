@@ -1,9 +1,9 @@
 package state
 
-import enums.GameState
 import Player
+import enums.GameState
 import serialization.serializable.map.Area
-import serialization.serializable.map.MapManager
+import serialization.serializable.map.MapHandler
 
 data class GameContext(
     var player: Player = Player,
@@ -20,7 +20,7 @@ data class GameContext(
             // TODO: Maybe create a cool random gen?
             // Or just get premade maps from file
 
-            return MapManager.provideAreaById("starter_area")
+            return MapHandler.provideAreaById("starter_area")
         }
     }
 }

@@ -1,0 +1,494 @@
+{
+  "items": [
+    {
+      "name": "Stick",
+      "type": "Misc",
+      "id": "item_stick"
+    },
+    {
+      "id": "item_kings_crown",
+      "name": "King's Crown",
+      "type": "Misc"
+    },
+    {
+      "id": "item_queens_tiara",
+      "name": "Queen's Tiara",
+      "type": "Misc"
+    },
+    {
+      "id": "item_elven_bow",
+      "name": "Elven Bow",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_dwarven_axe",
+      "name": "Dwarven Axe",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_orcish_blade",
+      "name": "Orcish Blade",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_wizards_hat",
+      "name": "Wizard's Hat",
+      "type": "Armor"
+    },
+    {
+      "id": "item_sorcerers_robe",
+      "name": "Sorcerer's Robe",
+      "type": "Armor"
+    },
+    {
+      "id": "item_goblin_dagger",
+      "name": "Goblin Dagger",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_dragon_shield",
+      "name": "Dragon Shield",
+      "type": "Armor"
+    },
+    {
+      "id": "item_phoenix_blade",
+      "name": "Phoenix Blade",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_rock",
+      "name": "Rock",
+      "type": "Misc"
+    },
+    {
+      "id": "item_pebble",
+      "name": "Pebble",
+      "type": "Misc"
+    },
+    {
+      "id": "item_wooden_sword",
+      "name": "Wooden Sword",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_iron_sword",
+      "name": "Iron Sword",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_steel_sword",
+      "name": "Steel Sword",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_iron_shield",
+      "name": "Iron Shield",
+      "type": "Armor"
+    },
+    {
+      "id": "item_wooden_shield",
+      "name": "Wooden Shield",
+      "type": "Armor"
+    },
+    {
+      "id": "item_leather_armor",
+      "name": "Leather Armor",
+      "type": "Armor"
+    },
+    {
+      "id": "item_chainmail_armor",
+      "name": "Chainmail Armor",
+      "type": "Armor"
+    },
+    {
+      "id": "item_staff",
+      "name": "Staff",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_magic_staff",
+      "name": "Magic Staff",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_potion",
+      "name": "Potion",
+      "type": "Consumable"
+    },
+    {
+      "id": "item_health_potion",
+      "name": "Health Potion",
+      "type": "Consumable"
+    },
+    {
+      "id": "item_mana_potion",
+      "name": "Mana Potion",
+      "type": "Consumable"
+    },
+    {
+      "id": "item_herb",
+      "name": "Herb",
+      "type": "Misc"
+    },
+    {
+      "id": "item_cloth",
+      "name": "Cloth",
+      "type": "Misc"
+    },
+    {
+      "id": "item_torch",
+      "name": "Torch",
+      "type": "Misc"
+    },
+    {
+      "id": "item_lantern",
+      "name": "Lantern",
+      "type": "Misc"
+    },
+    {
+      "id": "item_arrow",
+      "name": "Arrow",
+      "type": "Ammo"
+    },
+    {
+      "id": "item_iron_arrow",
+      "name": "Iron Arrow",
+      "type": "Ammo"
+    },
+    {
+      "id": "item_steel_arrow",
+      "name": "Steel Arrow",
+      "type": "Ammo"
+    },
+    {
+      "id": "item_bow",
+      "name": "Bow",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_crossbow",
+      "name": "Crossbow",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_dagger",
+      "name": "Dagger",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_axe",
+      "name": "Axe",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_battle_axe",
+      "name": "Battle Axe",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_warhammer",
+      "name": "Warhammer",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_pickaxe",
+      "name": "Pickaxe",
+      "type": "Tool"
+    },
+    {
+      "id": "item_shovel",
+      "name": "Shovel",
+      "type": "Tool"
+    },
+    {
+      "id": "item_rope",
+      "name": "Rope",
+      "type": "Misc"
+    },
+    {
+      "id": "item_gemstone",
+      "name": "Gemstone",
+      "type": "Misc"
+    },
+    {
+      "id": "item_crystal",
+      "name": "Crystal",
+      "type": "Misc"
+    },
+    {
+      "id": "item_gold_coin",
+      "name": "Gold Coin",
+      "type": "Currency"
+    },
+    {
+      "id": "item_silver_coin",
+      "name": "Silver Coin",
+      "type": "Currency"
+    },
+    {
+      "id": "item_bronze_coin",
+      "name": "Bronze Coin",
+      "type": "Currency"
+    },
+    {
+      "id": "item_helmet",
+      "name": "Helmet",
+      "type": "Armor"
+    },
+    {
+      "id": "item_iron_helmet",
+      "name": "Iron Helmet",
+      "type": "Armor"
+    },
+    {
+      "id": "item_steel_helmet",
+      "name": "Steel Helmet",
+      "type": "Armor"
+    },
+    {
+      "id": "item_boots",
+      "name": "Boots",
+      "type": "Armor"
+    },
+    {
+      "id": "item_leather_boots",
+      "name": "Leather Boots",
+      "type": "Armor"
+    },
+    {
+      "id": "item_iron_boots",
+      "name": "Iron Boots",
+      "type": "Armor"
+    },
+    {
+      "id": "item_necklace",
+      "name": "Necklace",
+      "type": "Accessory"
+    },
+    {
+      "id": "item_ring",
+      "name": "Ring",
+      "type": "Accessory"
+    },
+    {
+      "id": "item_magic_ring",
+      "name": "Magic Ring",
+      "type": "Accessory"
+    },
+    {
+      "id": "item_scroll",
+      "name": "Scroll",
+      "type": "Misc"
+    },
+    {
+      "id": "item_map",
+      "name": "Map",
+      "type": "Misc"
+    },
+    {
+      "id": "item_book",
+      "name": "Book",
+      "type": "Misc"
+    },
+    {
+      "id": "item_shield",
+      "name": "Shield",
+      "type": "Armor"
+    },
+    {
+      "id": "item_sword",
+      "name": "Sword",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_fishing_rod",
+      "name": "Fishing Rod",
+      "type": "Tool"
+    },
+    {
+      "id": "item_water_bottle",
+      "name": "Water Bottle",
+      "type": "Consumable"
+    },
+    {
+      "id": "item_bread",
+      "name": "Bread",
+      "type": "Consumable"
+    },
+    {
+      "id": "item_cheese",
+      "name": "Cheese",
+      "type": "Consumable"
+    },
+    {
+      "id": "item_meat",
+      "name": "Meat",
+      "type": "Consumable"
+    },
+    {
+      "id": "item_fish",
+      "name": "Fish",
+      "type": "Consumable"
+    },
+    {
+      "id": "item_egg",
+      "name": "Egg",
+      "type": "Consumable"
+    },
+    {
+      "id": "item_milk",
+      "name": "Milk",
+      "type": "Consumable"
+    },
+    {
+      "id": "item_hammer",
+      "name": "Hammer",
+      "type": "Tool"
+    },
+    {
+      "id": "item_nail",
+      "name": "Nail",
+      "type": "Misc"
+    },
+    {
+      "id": "item_bucket",
+      "name": "Bucket",
+      "type": "Misc"
+    },
+    {
+      "id": "item_lantern_oil",
+      "name": "Lantern Oil",
+      "type": "Misc"
+    },
+    {
+      "id": "item_tunic",
+      "name": "Tunic",
+      "type": "Armor"
+    },
+    {
+      "id": "item_gloves",
+      "name": "Gloves",
+      "type": "Armor"
+    },
+    {
+      "id": "item_iron_gloves",
+      "name": "Iron Gloves",
+      "type": "Armor"
+    },
+    {
+      "id": "item_steel_gloves",
+      "name": "Steel Gloves",
+      "type": "Armor"
+    },
+    {
+      "id": "item_spear",
+      "name": "Spear",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_iron_spear",
+      "name": "Iron Spear",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_steel_spear",
+      "name": "Steel Spear",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_potion_strength",
+      "name": "Potion of Strength",
+      "type": "Consumable"
+    },
+    {
+      "id": "item_potion_speed",
+      "name": "Potion of Speed",
+      "type": "Consumable"
+    },
+    {
+      "id": "item_robe",
+      "name": "Robe",
+      "type": "Armor"
+    },
+    {
+      "id": "item_magic_robe",
+      "name": "Magic Robe",
+      "type": "Armor"
+    },
+    {
+      "id": "item_compass",
+      "name": "Compass",
+      "type": "Misc"
+    },
+    {
+      "id": "item_flint",
+      "name": "Flint",
+      "type": "Misc"
+    },
+    {
+      "id": "item_tinderbox",
+      "name": "Tinderbox",
+      "type": "Misc"
+    },
+    {
+      "id": "item_fishing_net",
+      "name": "Fishing Net",
+      "type": "Tool"
+    },
+    {
+      "id": "item_magic_scroll",
+      "name": "Magic Scroll",
+      "type": "Misc"
+    },
+    {
+      "id": "item_ancient_scroll",
+      "name": "Ancient Scroll",
+      "type": "Misc"
+    },
+    {
+      "id": "item_rune",
+      "name": "Rune",
+      "type": "Misc"
+    },
+    {
+      "id": "item_dragon_scale",
+      "name": "Dragon Scale",
+      "type": "Misc"
+    },
+    {
+      "id": "item_phoenix_feather",
+      "name": "Phoenix Feather",
+      "type": "Misc"
+    },
+    {
+      "id": "item_potion_healing",
+      "name": "Potion of Healing",
+      "type": "Consumable"
+    },
+    {
+      "id": "item_potion_invisibility",
+      "name": "Potion of Invisibility",
+      "type": "Consumable"
+    },
+    {
+      "id": "item_mystic_staff",
+      "name": "Mystic Staff",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_enchanted_bow",
+      "name": "Enchanted Bow",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_dragon_sword",
+      "name": "Dragon Sword",
+      "type": "Weapon"
+    },
+    {
+      "id": "item_kings_crown",
+      "name": "King's Crown",
+      "type": "Misc"
+    }
+  ]
+}
